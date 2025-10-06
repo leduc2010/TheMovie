@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="120dp"
+            android:layout_height="170dp"
+            app:cardCornerRadius="10dp">
+
+            <ImageView
+                android:id="@+id/ivPoster"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@color/black"
+                tools:ignore="ContentDescription" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
+            android:text="@string/txt_movie_name"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+        <TableRow
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <ImageView
+                android:layout_width="14dp"
+                android:padding="2dp"
+                android:layout_gravity="center_vertical"
+                android:layout_height="14dp"
+                android:src="@mipmap/ic_star"
+                tools:ignore="ContentDescription" />
+            <TextView
+                android:id="@+id/tvVote"
+                android:layout_height="wrap_content"
+                android:textColor="@color/light_blue"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:text="@string/txt_vote_average"/>
+
+            <TextView
+                android:id="@+id/tvYear"
+                android:layout_width="match_parent"
+                android:gravity="end"
+                android:textSize="14sp"
+                android:textColor="@color/light_blue"
+                android:text="@string/txt_year"
+                android:layout_height="wrap_content"/>
+        </TableRow>
+    </LinearLayout>

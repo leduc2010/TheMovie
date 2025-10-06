@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="bg_color">#032541</color>
+    <color name="midnigh_blue_700">#063E67</color>
+    <color name="midnigh_blue_500">#09558C</color>
+    <color name="transparent">#00000000</color>
+    <color name="gray">#7F7F7F</color>
+    <color name="midnigh_blue_300">#096EB7</color>
+    <color name="teal_700">#00796B</color>
+    <color name="dark_gray">#2C2C33</color>
+    <color name="light_blue">#A2C5FB</color>
+    <color name="ryan">#41C79E</color>
+    <color name="cyan">#66BFF1</color>
+    <color name="orange">#FB9D09</color>
+    <color name="yellow">#FBE332</color>
+</resources>

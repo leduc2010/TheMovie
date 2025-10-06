@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@mipmap/ic_home"
+        android:title="@string/txt_home" />
+
+    <item
+        android:id="@+id/moviesFragment"
+        android:icon="@mipmap/ic_movies"
+        android:title="@string/txt_movies" />
+
+    <item
+        android:id="@+id/tvShowsFragment"
+        android:icon="@mipmap/ic_tvshow"
+        android:title="@string/txt_tv_shows" />
+
+    <item
+        android:id="@+id/peopleFragment"
+        android:icon="@mipmap/ic_people"
+        android:title="@string/txt_tv_people" />
+
+    <item
+        android:id="@+id/searchFragment"
+        android:icon="@mipmap/ic_search"
+        android:title="@string/txt_search" />
+</menu>

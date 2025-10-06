@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_custom_section"
+    android:orientation="vertical"
+    android:layout_marginBottom="10dp"
+    android:padding="10dp"
+    android:layout_margin="5dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvSectionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/txt_trending_movies"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/toggleGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="10dp"
+            app:checkedButton="@id/btnDay"
+            app:singleSelection="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDay"
+                style="@style/ToggleGroupShape"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/black"
+                android:checked="true"
+                android:text="@string/txt_day"
+                android:textColor="@color/white"
+                app:cornerRadius="16dp"
+                app:iconTint="@color/white" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnWeek"
+                style="@style/ToggleGroupShape"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/black"
+                android:text="@string/txt_week"
+                android:textColor="@color/white"
+                app:cornerRadius="16dp"
+                app:iconTint="#FFFFFF" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTrendingMovies"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:orientation="horizontal"
+        android:paddingTop="20dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_movie" />
+</LinearLayout>

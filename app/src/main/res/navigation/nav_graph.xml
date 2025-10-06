@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.duc.themovie.view.fragment.LoginFragment"
+        android:label="Login"
+        tools:ignore="FragmentTagUsage">
+        <action
+            android:id="@+id/action_login_to_home"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.duc.themovie.view.fragment.HomeFragment"
+        android:label="Home"
+        tools:ignore="FragmentTagUsage">
+
+        <action
+            android:id="@+id/action_homeFragment_to_tvShowsFragment"
+            app:destination="@id/tvShowsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_peopleFragment"
+            app:destination="@id/peopleFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/moviesFragment"
+        android:name="com.duc.themovie.view.fragment.MovieFragment"
+        android:label="Movies"
+        tools:ignore="FragmentTagUsage">
+        <action
+            android:id="@+id/action_moviesFragment_to_allItemFragment"
+            app:destination="@id/allItemFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/allItemFragment"
+        android:name="com.duc.themovie.view.fragment.AllItemFragment"
+        android:label="All Items">
+        <argument
+            android:name="sectionType"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/tvShowsFragment"
+        android:name="com.duc.themovie.view.fragment.TVFragment"
+        android:label="TV Shows">
+        <action
+            android:id="@+id/action_tvFragment_to_allItemFragment"
+            app:destination="@id/allItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/peopleFragment"
+        android:name="com.duc.themovie.view.fragment.PeopleFragment"
+        android:label="People">
+        <action
+            android:id="@+id/action_peopleFragment_to_detailPersonFragment"
+            app:destination="@+id/detailPersonFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailItemFragment"
+        android:name="com.duc.themovie.view.fragment.DetailItemFragment"
+        android:label="Detail Fragment">
+        <argument
+            android:name="itemId"
+            app:argType="integer" />
+        <argument
+            android:name="itemType"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailPersonFragment"
+        android:name="com.duc.themovie.view.fragment.DetailPersonFragment"
+        android:label="Detail Person Fragment">
+        <argument
+            android:name="personId"
+            app:argType="integer" />
+    </fragment>
+</navigation>

@@ -1,0 +1,17 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.TheMovie" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+    </style>
+
+    <style name="ToggleGroupShape" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item> <!-- bo tròn hẳn -->
+        <item name="strokeColor">@color/light_blue</item>
+        <item name="strokeWidth">2dp</item>
+    </style>
+
+    <style name="Theme.TheMovie" parent="Base.Theme.TheMovie" />
+</resources>

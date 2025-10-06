@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical"
+    android:padding="40dp">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:src="@mipmap/ic_logo"
+        tools:ignore="ContentDescription" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edtUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:autofillHints="username"
+        android:background="@drawable/custom_edt"
+        android:hint="@string/txt_user_name"
+        android:inputType="text"
+        android:textColor="@color/white"
+        android:padding="15dp"
+        android:paddingStart="@dimen/_30dp"
+        android:textColorHint="@color/white"
+        tools:ignore="RtlSymmetry" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edtPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:autofillHints="password"
+        android:background="@drawable/custom_edt"
+        android:hint="@string/txt_password"
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:padding="15dp"
+        android:paddingStart="@dimen/_30dp"
+        android:textColorHint="@color/white"
+        tools:ignore="RtlSymmetry" />
+
+    <CheckBox
+        android:id="@+id/cbRememberMe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="10dp"
+        android:buttonTint="@color/white"
+        android:text="@string/txt_remember_me"
+        android:textColor="@color/white" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btLogin"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_button_login"
+        android:backgroundTint="@color/white"
+        android:text="@string/txt_login"
+        android:textColor="@color/black" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3" />
+
+    <TextView
+        android:id="@+id/tvCreateUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="@string/txt_register"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+</LinearLayout>

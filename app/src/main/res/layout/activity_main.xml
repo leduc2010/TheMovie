@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.activity.MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:contentInsetStart="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:padding="2dp"
+        android:layout_height="50dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/ivMenu"
+                android:layout_width="30dp"
+                android:layout_marginStart="10dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/ic_list"
+                app:tint="@color/white"
+                tools:ignore="ContentDescription,RtlSymmetry" />
+
+            <ImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_logo"
+                tools:ignore="ContentDescription" />
+        </FrameLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/dark_gray"
+        app:itemIconSize="20dp"
+        app:itemIconTint="@color/light_blue"
+        app:itemRippleColor="@color/cyan"
+        app:itemTextColor="@color/white"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/item_bottom_nav" />
+</LinearLayout>
