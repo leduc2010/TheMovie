@@ -18,7 +18,7 @@
                 android:id="@+id/lnHeroBanner"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:layout_marginBottom="80dp"
+                android:layout_marginBottom="40dp"
                 android:background="@drawable/bg_hero_banner"
                 android:gravity="center_vertical"
                 android:orientation="vertical"
@@ -47,7 +47,7 @@
                 layout="@layout/section_favoritemovie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="80dp" />
+                android:layout_marginBottom="40dp" />
 
             <include
                 android:id="@+id/includePopular"

@@ -183,6 +183,11 @@ public class TVVM extends BaseViewModel implements SectionVM {
         return "";
     }
 
+    @Override
+    public String getTimeWindow() {
+        return this.timeWindow;
+    }
+
     private int nextPage(String key) {
         int p = pageMap.getOrDefault(key, 0) + 1;
         pageMap.put(key, p);

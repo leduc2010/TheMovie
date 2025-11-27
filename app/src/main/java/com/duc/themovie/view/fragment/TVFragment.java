@@ -12,7 +12,7 @@ public class TVFragment extends BaseFrg<TvFragmentBinding, TVVM> {
 
     private static final String KEY_GET_TRENDING_TVSHOWS = "KEY_GET_TRENDING_TVSHOWS";
     private static final String KEY_GET_POPULAR_TVSHOWS = "KEY_GET_POPULAR_TVSHOWS";
-        private static final String KEY_GET_AIRING_TODAY_TVSHOWS = "KEY_GET_AIRING_TODAY_TVSHOWS";
+    private static final String KEY_GET_AIRING_TODAY_TVSHOWS = "KEY_GET_AIRING_TODAY_TVSHOWS";
     private static final String KEY_GET_ON_THE_AIR_TVSHOWS = "KEY_GET_ON_THE_AIR_TVSHOWS";
     private static final String KEY_GET_TOP_RATED_TVSHOWS = "KEY_GET_TOP_RATED_TVSHOWS";
 
@@ -44,17 +44,7 @@ public class TVFragment extends BaseFrg<TvFragmentBinding, TVVM> {
     @SuppressLint("NotifyDataSetChanged")
     @Override
     public void apiSuccess(String key, Object data) {
-        if (key.equals(KEY_GET_TRENDING_TVSHOWS)) {
-            sectionAdapter.updateListTrendingMovies(viewModel.getResultList(KEY_GET_TRENDING_TVSHOWS));
-        } else if (key.equals(KEY_GET_POPULAR_TVSHOWS)) {
-            sectionAdapter.notifyDataSetChanged();
-        } else if (key.equals(KEY_GET_AIRING_TODAY_TVSHOWS)) {
-            sectionAdapter.notifyDataSetChanged();
-        } else if (key.equals(KEY_GET_ON_THE_AIR_TVSHOWS)) {
-            sectionAdapter.notifyDataSetChanged();
-        } else if (key.equals(KEY_GET_TOP_RATED_TVSHOWS)) {
-            sectionAdapter.notifyDataSetChanged();
-        }
+        sectionAdapter.notifyDataSetChanged();
         super.apiSuccess(key, data);
     }
 }

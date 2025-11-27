@@ -11,11 +11,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.bumptech.glide.Glide;
 import com.duc.themovie.api.res.DetailPersonRes;
-import com.duc.themovie.databinding.PersonDetailFragmentBinding;
+import com.duc.themovie.databinding.DetailPersonFragmentBinding;
 import com.duc.themovie.view.adapter.ImageAdapter;
 import com.duc.themovie.viewmodel.DetailPersonVM;
 
-public class DetailPersonFragment extends BaseFrg<PersonDetailFragmentBinding, DetailPersonVM> {
+public class DetailPersonFragment extends BaseFrg<DetailPersonFragmentBinding, DetailPersonVM> {
     private ImageAdapter imgAdpt;
     private static final String LOGO_PATH = "https://image.tmdb.org/t/p/w500";
 
@@ -45,8 +45,8 @@ public class DetailPersonFragment extends BaseFrg<PersonDetailFragmentBinding, D
 
 
     @Override
-    protected PersonDetailFragmentBinding initViewBinding(LayoutInflater inflater, ViewGroup container) {
-        return PersonDetailFragmentBinding.inflate(inflater, container, false);
+    protected DetailPersonFragmentBinding initViewBinding(LayoutInflater inflater, ViewGroup container) {
+        return DetailPersonFragmentBinding.inflate(inflater, container, false);
     }
 
     @SuppressLint({"DefaultLocale", "NotifyDataSetChanged"})

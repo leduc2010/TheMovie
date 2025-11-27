@@ -41,7 +41,6 @@
             this.isMovie = isMovie;
         }
 
-
         @NonNull
         @Override
         public ItemAdapter.MovieHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

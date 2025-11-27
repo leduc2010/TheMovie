@@ -1,7 +1,5 @@
 package com.duc.themovie.view.adapter;
 
-import static com.duc.themovie.viewmodel.HomeVM.KEY_GET_TRENDING_MOVIES;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -28,12 +26,11 @@ public class SectionAdapter<VM extends SectionVM> extends RecyclerView.Adapter<R
     private static final int VIEW_TYPE_TRENDING = 1;
     private static final int VIEW_TYPE_NORMAL = 0;
     private Context context;
-
-    private ItemAdapter adapter;
     private List<Section> sections;
 
     private final VM viewModel;
 
+    public static final String TAG = SectionAdapter.class.getName();
 
     public SectionAdapter(Context context, List<Section> sections, VM viewModel) {
         this.context = context;
@@ -63,30 +60,33 @@ public class SectionAdapter<VM extends SectionVM> extends RecyclerView.Adapter<R
             TrendingViewHolder trendingViewHolder = (TrendingViewHolder) holder;
             trendingViewHolder.tvSectionTitle.setText(section.getTitle());
 
-            if (type.contains("Movie")) {
-                adapter = new ItemAdapter<>(viewModel.getResultList(key), context, true);
-            } else if (type.contains("TV")) {
-                adapter = new ItemAdapter<>(viewModel.getResultList(key), context, false);
-            }
-            trendingViewHolder.rvTrendingMovies.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
-            trendingViewHolder.rvTrendingMovies.setAdapter(adapter);
+            List<?> currentList = viewModel.getResultList(key);
+            boolean isMovie = type.contains("Movie");
 
-            initToggle(trendingViewHolder, adapter, viewModel.getKeyBySectionType(type));
-        } else if (holder.getItemViewType() == VIEW_TYPE_NORMAL) {
-            SectionViewHolder movieViewHolder = (SectionViewHolder) holder;
-
-            movieViewHolder.tvSectionTitle.setText(section.getTitle());
-
-            if (type.contains("Movie")) {
-                adapter = new ItemAdapter<>(viewModel.getResultList(key), context, true);
-            } else if (type.contains("TV")) {
-                adapter = new ItemAdapter<>(viewModel.getResultList(key), context, false);
+            if (trendingViewHolder.trendingAdapter == null) {
+                trendingViewHolder.trendingAdapter = new ItemAdapter<>(currentList, context, isMovie);
+                trendingViewHolder.rvTrendingMovies.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+                trendingViewHolder.rvTrendingMovies.setAdapter(trendingViewHolder.trendingAdapter);
+            } else {
+                trendingViewHolder.trendingAdapter.updateListResult(currentList);
+                trendingViewHolder.trendingAdapter.setMovie(isMovie);
+                trendingViewHolder.trendingAdapter.notifyDataSetChanged();
             }
 
-            movieViewHolder.rvSections.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
-            movieViewHolder.rvSections.setAdapter(adapter);
+            initToggle(trendingViewHolder, trendingViewHolder.trendingAdapter, type);
 
-            movieViewHolder.btnAll.setOnClickListener(v -> {
+        } else {
+            SectionViewHolder normalHolder = (SectionViewHolder) holder;
+            normalHolder.tvSectionTitle.setText(section.getTitle());
+
+            List<?> list = viewModel.getResultList(key);
+            boolean isMovie = type.contains("Movie");
+
+            normalHolder.sectionAdapter = new ItemAdapter<>(list, context, isMovie);
+            normalHolder.rvSections.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+            normalHolder.rvSections.setAdapter(normalHolder.sectionAdapter);
+
+            normalHolder.btnAll.setOnClickListener(v -> {
                 Bundle bundle = new Bundle();
                 bundle.putString("sectionType", type);
                 Navigation.findNavController(v).navigate(R.id.allItemFragment, bundle);
@@ -95,11 +95,14 @@ public class SectionAdapter<VM extends SectionVM> extends RecyclerView.Adapter<R
     }
 
     private void initToggle(TrendingViewHolder trendingViewHolder, ItemAdapter adapter, String type) {
-        // default chọn Day
-        trendingViewHolder.toggleGroup.check(R.id.btnDay);
-        setButtonSelected(trendingViewHolder.btnDay, true);
-        setButtonSelected(trendingViewHolder.btnWeek, false);
+        String current = viewModel.getTimeWindow();
+        if ("week".equals(current)) {
+            trendingViewHolder.toggleGroup.check(R.id.btnWeek);
+        } else {
+            trendingViewHolder.toggleGroup.check(R.id.btnDay);
+        }
 
+        trendingViewHolder.toggleGroup.clearOnButtonCheckedListeners();
         trendingViewHolder.toggleGroup.addOnButtonCheckedListener((group, checkedId, isChecked) -> {
             if (isChecked) {
                 if (checkedId == R.id.btnDay) {
@@ -115,15 +118,13 @@ public class SectionAdapter<VM extends SectionVM> extends RecyclerView.Adapter<R
                                      TrendingViewHolder trendingViewHolder, ItemAdapter adapter, String type) {
         setButtonSelected(selectedBtn, true);
         setButtonSelected(unselectedBtn, false);
-
-        viewModel.clearResultList(KEY_GET_TRENDING_MOVIES);
-        viewModel.resetPage(KEY_GET_TRENDING_MOVIES);
+        String key = viewModel.getKeyBySectionType(type);
+        viewModel.clearResultList(key);
+        viewModel.resetPage(key);
         viewModel.setTimeWindow(timeWindow);
-        if (adapter != null) {
-            adapter.updateListResult(viewModel.getResultList(viewModel.getKeyBySectionType(type)));
-        }
-        trendingViewHolder.rvTrendingMovies.smoothScrollToPosition(0);
         viewModel.getListTrending();
+        adapter.updateListResult(viewModel.getResultList(key));
+        trendingViewHolder.rvTrendingMovies.smoothScrollToPosition(0);
     }
 
     private void setButtonSelected(MaterialButton btn, boolean selected) {
@@ -134,12 +135,6 @@ public class SectionAdapter<VM extends SectionVM> extends RecyclerView.Adapter<R
         } else {
             btn.setIconTintResource(android.R.color.black);
             btn.setIcon(null);
-        }
-    }
-
-    public void updateListTrendingMovies(List<MovieRes.Result> listMovie) {
-        if (adapter != null) {
-            adapter.updateListResult(listMovie);
         }
     }
 
@@ -161,6 +156,7 @@ public class SectionAdapter<VM extends SectionVM> extends RecyclerView.Adapter<R
     public static class SectionViewHolder extends RecyclerView.ViewHolder {
         TextView tvSectionTitle;
         RecyclerView rvSections;
+        ItemAdapter sectionAdapter;
         MaterialButton btnAll;
 
         public SectionViewHolder(@NonNull View itemView) {
@@ -175,8 +171,9 @@ public class SectionAdapter<VM extends SectionVM> extends RecyclerView.Adapter<R
         TextView tvSectionTitle;
         RecyclerView rvTrendingMovies;
         MaterialButtonToggleGroup toggleGroup;
-        MaterialButton btnDay, btnWeek;
+        ItemAdapter trendingAdapter;
 
+        MaterialButton btnDay, btnWeek;
 
         TrendingViewHolder(@NonNull View itemView) {
             super(itemView);
