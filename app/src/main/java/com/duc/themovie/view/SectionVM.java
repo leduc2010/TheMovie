@@ -31,4 +31,6 @@ public interface SectionVM {
 
     public void clearResultList(String key);
     String getKeyBySectionType(String sectionType);
+
+    String getTimeWindow();
 }

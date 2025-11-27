@@ -4,6 +4,7 @@ package com.duc.themovie.api;
 import com.duc.themovie.api.request.AccountReq;
 import com.duc.themovie.api.request.RequestTokenReq;
 import com.duc.themovie.api.res.AuthenRes;
+import com.duc.themovie.api.res.CombinedCreditsRes;
 import com.duc.themovie.api.res.CreditRes;
 import com.duc.themovie.api.res.DetailMovieRes;
 import com.duc.themovie.api.res.DetailPersonRes;
@@ -148,5 +149,7 @@ public interface API {
     @Headers("Content-Type: application/json")
     Call<ImageRes> getPersonProfiles(@Path("person_id") int id);
 
-
+    @GET("person/{person_id}/combined_credits?api_key=" + API_KEY)
+    @Headers("Content-Type: application/json")
+    Call<CombinedCreditsRes> getCombinedCredits(@Path("person_id") int id);
 }

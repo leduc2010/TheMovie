@@ -13,7 +13,7 @@
         android:layout_height="40dp"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/bg_custom_backbtn"
         android:padding="10dp"
         android:src="@mipmap/ic_back"
@@ -30,6 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -249,6 +250,7 @@
                 android:textStyle="bold"
                 android:translationY="15dp" />
 
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvProfile"
                 android:layout_width="match_parent"
@@ -275,165 +277,73 @@
                 android:textStyle="bold"
                 android:translationY="15dp" />
 
-            <TableLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_custom_section"
                 android:drawablePadding="10dp"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="10dp">
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TableRow
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/txt_acting"
-                            android:textColor="@color/white"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:id="@+id/tvActingMovies"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="start"
-                            android:paddingStart="5dp"
-                            android:textColor="@color/white"
-                            android:textSize="12sp"
-                            tools:ignore="RtlSymmetry" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/txt_acting"
-                            android:textColor="@color/white"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:id="@+id/tvActingTVShows"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:paddingStart="5dp"
-                            android:textColor="@color/white"
-                            android:textSize="12sp"
-                            tools:ignore="RtlSymmetry" />
-                    </TableRow>
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TableRow
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/txt_production"
-                            android:textColor="@color/white"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:id="@+id/tvProductionMovies"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="start"
-                            android:paddingStart="5dp"
-                            android:textColor="@color/white"
-                            android:textSize="12sp"
-                            tools:ignore="RtlSymmetry" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/txt_production"
-                            android:textColor="@color/white"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:id="@+id/tvProductionTVShows"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:paddingStart="5dp"
-                            android:textColor="@color/white"
-                            android:textSize="12sp"
-                            tools:ignore="RtlSymmetry" />
-                    </TableRow>
-                </TableRow>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/txt_crew"
-                    android:textColor="@color/white" />
-
-                <TableRow
-                    android:layout_width="match_parent"
                     android:layout_marginTop="10dp"
                     android:layout_height="wrap_content">
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btMovies"
+                    <LinearLayout
+                        android:id="@+id/lvLeft"
                         android:layout_width="0dp"
+                        android:orientation="vertical"
                         android:layout_weight="1"
-                        android:layout_height="45dp"
-                        android:text="@string/txt_movies"
-                        android:textAllCaps="false"
-                        android:paddingHorizontal="20dp"
-                        android:textSize="12sp"
-                        android:drawableStart="@mipmap/ic_movie"
-                        android:drawableTint="@color/light_blue"
-                        android:layout_marginEnd="15dp"
-                        android:textColor="@color/light_blue"
-                        android:background="@drawable/bg_custom_backbtn"
-                        tools:ignore="RtlSymmetry" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btTVShows"
+                        android:layout_height="wrap_content">
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/lvRight"
                         android:layout_width="0dp"
+                        android:orientation="vertical"
                         android:layout_weight="1"
-                        android:layout_height="45dp"
-                        android:drawableStart="@mipmap/ic_movie"
-                        android:drawableTint="@color/light_blue"
-                        android:background="@drawable/custom_tv"
-                        android:paddingHorizontal="20dp"
-                        android:text="@string/txt_tv_shows"
-                        android:textAllCaps="false"
-                        android:textColor="@color/light_blue"
-                        android:textSize="12sp" />
+                        android:layout_height="wrap_content">
+                    </LinearLayout>
                 </TableRow>
-            </TableLayout>
+
+<!--                <TableRow-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginBottom="5dp"-->
+<!--                    android:padding="10dp"-->
+<!--                    android:layout_marginTop="10dp">-->
+
+<!--                    <androidx.appcompat.widget.AppCompatButton-->
+<!--                        android:id="@+id/btMovies"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="45dp"-->
+<!--                        android:layout_marginEnd="15dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:background="@drawable/bg_custom_backbtn"-->
+<!--                        android:drawableStart="@mipmap/ic_movie"-->
+<!--                        android:drawableTint="@color/light_blue"-->
+<!--                        android:paddingHorizontal="20dp"-->
+<!--                        android:text="@string/txt_movies"-->
+<!--                        android:textAllCaps="false"-->
+<!--                        android:textColor="@color/light_blue"-->
+<!--                        android:textSize="14sp"-->
+<!--                        tools:ignore="RtlSymmetry" />-->
+
+<!--                    <androidx.appcompat.widget.AppCompatButton-->
+<!--                        android:id="@+id/btTVShows"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="45dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:background="@drawable/custom_tv"-->
+<!--                        android:drawableStart="@mipmap/ic_movie"-->
+<!--                        android:drawableTint="@color/light_blue"-->
+<!--                        android:paddingHorizontal="20dp"-->
+<!--                        android:text="@string/txt_tv_shows"-->
+<!--                        android:textAllCaps="false"-->
+<!--                        android:textColor="@color/light_blue"-->
+<!--                        android:textSize="12sp" />-->
+<!--                </TableRow>-->
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

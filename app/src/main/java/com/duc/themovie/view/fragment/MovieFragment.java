@@ -1,11 +1,5 @@
 package com.duc.themovie.view.fragment;
 
-import static com.duc.themovie.viewmodel.HomeVM.KEY_GET_POPULAR_MOVIES;
-import static com.duc.themovie.viewmodel.HomeVM.KEY_GET_TRENDING_MOVIES;
-import static com.duc.themovie.viewmodel.MovieVM.KEY_GET_NOW_PLAYING_MOVIES;
-import static com.duc.themovie.viewmodel.MovieVM.KEY_GET_TOP_RATED_MOVIES;
-import static com.duc.themovie.viewmodel.MovieVM.KEY_GET_UPCOMING_MOVIES;
-
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -44,17 +38,7 @@ public class MovieFragment extends BaseFrg<MovieFragmentBinding, MovieVM> {
     @SuppressLint("NotifyDataSetChanged")
     @Override
     public void apiSuccess(String key, Object data) {
-        if (key.equals(KEY_GET_TRENDING_MOVIES)) {
-            sectionAdapter.updateListTrendingMovies(viewModel.getResultList(KEY_GET_TRENDING_MOVIES));
-        } else if (key.equals(KEY_GET_POPULAR_MOVIES)) {
-            sectionAdapter.notifyDataSetChanged();
-        } else if (key.equals(KEY_GET_NOW_PLAYING_MOVIES)) {
-            sectionAdapter.notifyDataSetChanged();
-        } else if (key.equals(KEY_GET_UPCOMING_MOVIES)) {
-            sectionAdapter.notifyDataSetChanged();
-        } else if (key.equals(KEY_GET_TOP_RATED_MOVIES)) {
-            sectionAdapter.notifyDataSetChanged();
-        }
+        sectionAdapter.notifyDataSetChanged();
         super.apiSuccess(key, data);
     }
 }

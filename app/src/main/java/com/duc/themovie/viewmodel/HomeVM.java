@@ -28,6 +28,10 @@ public class HomeVM extends BaseViewModel {
         this.timeWindow = timeWindow;
     }
 
+    public String getTimeWindow() {
+        return timeWindow;
+    }
+
     public void getListTrendingMovies() {
         pageTrendingMovie++;
         Log.i(TAG, "Call API trending: timeWindow=" + timeWindow + ", page=" + pageTrendingMovie);

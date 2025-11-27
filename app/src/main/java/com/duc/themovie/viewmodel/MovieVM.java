@@ -27,7 +27,7 @@ public class MovieVM extends BaseViewModel implements SectionVM {
         put(KEY_GET_UPCOMING_MOVIES, 0);
         put(KEY_GET_TOP_RATED_MOVIES, 0);
     }};
-    private Map<String, List<MovieRes.Result>> movieMap = new HashMap<String, List<MovieRes.Result>>() {{
+    private Map<String, List<MovieRes.Result>> movieMap = new HashMap<>() {{
         put(KEY_GET_TRENDING_MOVIES, new ArrayList<>());
         put(KEY_GET_POPULAR_MOVIES, new ArrayList<>());
     }};
@@ -80,6 +80,7 @@ public class MovieVM extends BaseViewModel implements SectionVM {
         if (key.equals(KEY_GET_TRENDING_MOVIES)) {
             MovieRes res = (MovieRes) body;
             addToMovieMap(KEY_GET_TRENDING_MOVIES, res.resultsMovie);
+            Log.d("MovieDebug", "Trending item: name=" + res.resultsMovie.get(2).title);
             addSection(new Section("Trending Movies", res.resultsMovie, null, "TrendingMovie"));
             super.handleSuccess(key, body);
         } else if (key.equals(KEY_GET_POPULAR_MOVIES)) {
@@ -152,6 +153,11 @@ public class MovieVM extends BaseViewModel implements SectionVM {
             case "TrendingMovie": return KEY_GET_TRENDING_MOVIES;
         }
         return "";
+    }
+
+    @Override
+    public String getTimeWindow() {
+        return this.timeWindow;
     }
 
     private int nextPage(String key) {
