@@ -315,7 +315,7 @@
 
 <!--                    <androidx.appcompat.widget.AppCompatButton-->
 <!--                        android:id="@+id/btMovies"-->
-<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_widt h="0dp"-->
 <!--                        android:layout_height="45dp"-->
 <!--                        android:layout_marginEnd="15dp"-->
 <!--                        android:layout_weight="1"-->
