@@ -19,5 +19,8 @@ public class CreditRes implements Serializable {
         public String character;
         @SerializedName("profile_path")
         public String profilePath;
+
+        @SerializedName("id")
+        public int id;
     }
 }

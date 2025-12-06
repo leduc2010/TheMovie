@@ -1,6 +1,7 @@
 package com.duc.themovie.view.adapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -40,6 +43,17 @@ public class CastAdapter extends RecyclerView.Adapter<CastAdapter.CastHolder> {
         holder.castName.setText(cast.originalName);
         holder.charName.setText(cast.character);
         Glide.with(context).load(PROFILE_PATH + cast.profilePath).into(holder.profile);
+        holder.itemView.setOnClickListener(v -> {
+            try {
+                NavController navController = Navigation.findNavController(v);
+                Bundle bundle = new Bundle();
+                bundle.putInt("personId", cast.id);
+                navController.navigate(R.id.detailPersonFragment, bundle);
+            } catch (Exception e) {
+                android.util.Log.e("CastAdapter", "Navigation error: " + e.getMessage());
+            }
+        });
+
     }
 
     @Override

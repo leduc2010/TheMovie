@@ -58,7 +58,7 @@ public class DetailItemFragment extends BaseFrg<DetailItemFragmentBinding, Detai
             String itemType = getArguments().getString("itemType");
             initTabLayout(itemId, itemType);
 
-            if (itemType != null && itemType.equals("movies")) {
+            if (itemType != null && itemType.equals("movies") || itemType.equals("movie")) {
                 binding.lnAboutMovie.setVisibility(View.VISIBLE);
                 binding.lnAboutTVShow.setVisibility(View.GONE);
                 binding.tvCast.setText("Top Billed Cast");

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/black"
     tools:context=".view.activity.MainActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -20,15 +21,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/ivMenu"
-                android:layout_width="30dp"
-                android:layout_marginStart="10dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-                android:src="@mipmap/ic_list"
-                app:tint="@color/white"
-                tools:ignore="ContentDescription,RtlSymmetry" />
+<!--            <ImageView-->
+<!--                android:id="@+id/ivMenu"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                android:src="@mipmap/ic_list"-->
+<!--                app:tint="@color/white"-->
+<!--                tools:ignore="ContentDescription,RtlSymmetry" />-->
 
             <ImageView
                 android:id="@+id/ivLogo"

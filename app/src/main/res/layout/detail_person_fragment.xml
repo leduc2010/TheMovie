@@ -229,7 +229,6 @@
                     android:maxLines="3"
                     android:paddingHorizontal="10dp"
                     android:paddingTop="20dp"
-                    android:text="@string/txt_overview_content"
                     android:textColor="@color/white"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -289,6 +288,7 @@
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_marginTop="10dp"
+                    android:paddingVertical="10dp"
                     android:layout_height="wrap_content">
                     <LinearLayout
                         android:id="@+id/lvLeft"

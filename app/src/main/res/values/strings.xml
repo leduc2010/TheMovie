@@ -73,4 +73,8 @@
     <string name="txt_profiles">Profiles</string>
     <string name="txt_production">Production:</string>
     <string name="txt_crew">Crew:</string>
+    <string name="txt_more">More</string>
+    <string name="txt_0">0</string>
+    <string name="txt_people">People</string>
+    <string name="txt_search_for_a_movie_tv_show_person">Search for a movie, TV show, person...</string>
 </resources>

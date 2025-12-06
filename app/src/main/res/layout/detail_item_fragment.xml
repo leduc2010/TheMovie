@@ -167,8 +167,6 @@
                                 android:textSize="14sp"
                                 app:drawableStartCompat="@mipmap/ic_user"
                                 app:drawableTint="@color/white" />
-
-
                         </TableRow>
 
                         <com.google.android.flexbox.FlexboxLayout
@@ -272,7 +270,6 @@
                         android:maxLines="3"
                         android:paddingHorizontal="10dp"
                         android:paddingTop="20dp"
-                        android:text="@string/txt_overview_content"
                         android:textColor="@color/white"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -334,7 +331,6 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
                                 android:gravity="center_vertical"
-                                android:text="@string/txt_released"
                                 android:textColor="@color/white"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
@@ -363,7 +359,6 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
                                 android:gravity="center_vertical"
-                                android:text="@string/txt_language"
                                 android:textColor="@color/white"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
@@ -392,7 +387,6 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
                                 android:gravity="center_vertical"
-                                android:text="@string/txt_2000000"
                                 android:textColor="@color/white"
                                 android:textSize="14sp" />
 
@@ -421,7 +415,6 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
                                 android:gravity="center_vertical"
-                                android:text="@string/txt_revenue_earning"
                                 android:textColor="@color/white"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
@@ -450,7 +443,6 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
                                 android:gravity="center_vertical"
-                                android:text="@string/txt_italy"
                                 android:textColor="@color/white"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />

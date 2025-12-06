@@ -13,6 +13,7 @@ import com.duc.themovie.api.res.ImageRes;
 import com.duc.themovie.api.res.KeywordsMovieRes;
 import com.duc.themovie.api.res.KeywordsTVRes;
 import com.duc.themovie.api.res.MovieRes;
+import com.duc.themovie.api.res.MultiSearchRes;
 import com.duc.themovie.api.res.PeopleRes;
 import com.duc.themovie.api.res.SessionRes;
 import com.duc.themovie.api.res.TVShowRes;
@@ -152,4 +153,17 @@ public interface API {
     @GET("person/{person_id}/combined_credits?api_key=" + API_KEY)
     @Headers("Content-Type: application/json")
     Call<CombinedCreditsRes> getCombinedCredits(@Path("person_id") int id);
+
+    @GET("search/multi?api_key=" + API_KEY)
+    @Headers("Content-Type: application/json")
+    Call<MultiSearchRes> searchMulti(
+            @Query("query") String query,
+            @Query("page") int page
+    );
+
+    @GET("search/multi?api_key=" + API_KEY)
+    @Headers("Content-Type: application/json")
+    Call<MultiSearchRes> searchMulti(
+            @Query("query") String query
+    );
 }

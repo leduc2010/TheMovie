@@ -49,12 +49,12 @@ public class MainActivity extends BaseAct<ActivityMainBinding, AllItemVM> {
 
         String sessionId = CommonUtils.getInstance().getPref(KEY_SESSION_ID);
         Log.i(TAG, "sessionId: " + sessionId);
-//        if (sessionId != null && !sessionId.isEmpty()) {
+        if (sessionId != null && !sessionId.isEmpty()) {
             navGraph.setStartDestination(R.id.homeFragment);
 
-//        } else {
-//            navGraph.setStartDestination(R.id.loginFragment);
-//        }
+        } else {
+            navGraph.setStartDestination(R.id.loginFragment);
+        }
 
         navController.setGraph(navGraph);
 
@@ -62,7 +62,8 @@ public class MainActivity extends BaseAct<ActivityMainBinding, AllItemVM> {
                 R.id.homeFragment,
                 R.id.moviesFragment,
                 R.id.tvShowsFragment,
-                R.id.peopleFragment
+                R.id.peopleFragment,
+                R.id.searchFragment
         ).build();
 
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);

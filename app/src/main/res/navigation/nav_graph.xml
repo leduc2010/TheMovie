@@ -62,7 +62,7 @@
         android:label="People">
         <action
             android:id="@+id/action_peopleFragment_to_detailPersonFragment"
-            app:destination="@+id/detailPersonFragment"/>
+            app:destination="@+id/detailPersonFragment" />
     </fragment>
 
     <fragment
@@ -75,6 +75,9 @@
         <argument
             android:name="itemType"
             app:argType="string" />
+        <action
+            android:id="@+id/action_detailItemFragment_to_detailPersonFragment"
+            app:destination="@+id/detailPersonFragment"/>
     </fragment>
     <fragment
         android:id="@+id/detailPersonFragment"
@@ -84,4 +87,9 @@
             android:name="personId"
             app:argType="integer" />
     </fragment>
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.duc.themovie.view.fragment.SearchFragment"
+        android:label="SearchFragment"/>
 </navigation>

@@ -84,7 +84,7 @@ public class DetailPersonFragment extends BaseFrg<DetailPersonFragmentBinding, D
 
                 if (movie > 0) {
                     TextView tvMovie = new TextView(context);
-                    tvMovie.setText(dept + movie);
+                    tvMovie.setText(dept +": " + movie);
                     tvMovie.setTextColor(Color.WHITE);
                     tvMovie.setTextSize(14);
                     tvMovie.setPadding(0, 8, 0, 8);
@@ -93,7 +93,7 @@ public class DetailPersonFragment extends BaseFrg<DetailPersonFragmentBinding, D
 
                 if (tv > 0) {
                     TextView tvTV = new TextView(context);
-                    tvTV.setText(dept + tv);
+                    tvTV.setText(dept + ": " +  tv);
                     tvTV.setTextColor(Color.WHITE);
                     tvTV.setTextSize(14);
                     tvTV.setPadding(0, 8, 0, 8);
