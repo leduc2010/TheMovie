@@ -75,6 +75,19 @@ public class DetailPersonFragment extends BaseFrg<DetailPersonFragmentBinding, D
             String[] order = {"Acting", "Crew", "Directing", "Production", "Creator",
                     "Writing", "Camera", "Sound", "Art", "Editing", "Lighting", "Visual"};
 
+            TextView tvMovie = new TextView(context);
+            tvMovie.setText("Movie");
+            tvMovie.setTextColor(Color.WHITE);
+            tvMovie.setTextSize(16);
+            tvMovie.setPadding(0, 8, 0, 10);
+            binding.lvLeft.addView(tvMovie);
+
+            TextView tvTVShow = new TextView(context);
+            tvTVShow.setText("TV Show");
+            tvTVShow.setTextColor(Color.WHITE);
+            tvTVShow.setTextSize(16);
+            tvTVShow.setPadding(0, 8, 0, 10);
+            binding.lvRight.addView(tvTVShow);
             for (String dept : order) {
                 int movie = viewModel.mapCombinedCred.getOrDefault(dept + "_Movie", 0);
                 int tv = viewModel.mapCombinedCred.getOrDefault(dept + "_TV", 0);
@@ -83,12 +96,12 @@ public class DetailPersonFragment extends BaseFrg<DetailPersonFragmentBinding, D
                 if (movie == 0 && tv == 0) continue;
 
                 if (movie > 0) {
-                    TextView tvMovie = new TextView(context);
-                    tvMovie.setText(dept +": " + movie);
-                    tvMovie.setTextColor(Color.WHITE);
-                    tvMovie.setTextSize(14);
-                    tvMovie.setPadding(0, 8, 0, 8);
-                    binding.lvLeft.addView(tvMovie);
+                    TextView tvMovie1 = new TextView(context);
+                    tvMovie1.setText(dept +": " + movie);
+                    tvMovie1.setTextColor(Color.WHITE);
+                    tvMovie1.setTextSize(14);
+                    tvMovie1.setPadding(0, 8, 0, 8);
+                    binding.lvLeft.addView(tvMovie1);
                 }
 
                 if (tv > 0) {
@@ -100,7 +113,7 @@ public class DetailPersonFragment extends BaseFrg<DetailPersonFragmentBinding, D
                     binding.lvRight.addView(tvTV);
                 }
             }
-            imgAdpt.notifyDataSetChanged();
         }
+        imgAdpt.notifyDataSetChanged();
     }
 }

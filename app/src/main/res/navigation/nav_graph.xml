@@ -9,6 +9,8 @@
         android:id="@+id/loginFragment"
         android:name="com.duc.themovie.view.fragment.LoginFragment"
         android:label="Login"
+        popUpTo="@id/loginFragment"
+        popUpToInclusive="true"
         tools:ignore="FragmentTagUsage">
         <action
             android:id="@+id/action_login_to_home"

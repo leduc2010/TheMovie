@@ -19,8 +19,6 @@ import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.fragment.NavHostFragment;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
@@ -243,7 +241,7 @@ public class DetailItemFragment extends BaseFrg<DetailItemFragmentBinding, Detai
 
                 binding.flexTVShowCreators.addView(tv);
             }
-        }else {
+        } else {
             binding.trCreator.setVisibility(View.GONE);
         }
     }
